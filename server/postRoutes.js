@@ -2,7 +2,8 @@ var db = require('../database/db')
 var hasher = require('../database/hasher')
 
 module.exports = {
-  logUp: logUp
+  logUp: logUp,
+  logIn: logIn
 }
 
 function logUp (req, res) {
@@ -15,6 +16,22 @@ function logUp (req, res) {
       })
     } else {
       res.render('log-up', {message: "* already user idiot"})
+    }
+  })
+}
+
+function logIn (req, res) {
+  db.getOneByName('users', req.body.name, (data) => {
+    if (data.length > 0) {
+      hasher.checkHash(req.body.password, data[0].password, (valid) => {
+        if (valid) {
+          res.render('log-in', {message: "yes!"})
+        } else {
+          res.render('log-in', {message: "* wrong password idiot"})
+        }
+      })
+    } else {
+      res.render('log-in', {message: "* user doesnt exist idiot"})
     }
   })
 }

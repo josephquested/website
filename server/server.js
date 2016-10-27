@@ -33,5 +33,6 @@ app.get('/log/in', getRoutes.logIn)
 
 // POST REQUESTS //
 app.post('/log/up', postRoutes.logUp)
+app.post('/log/in', postRoutes.logIn)
 
 module.exports = app
