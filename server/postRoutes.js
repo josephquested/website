@@ -10,7 +10,7 @@ function logUp (req, res) {
     if (!data.length) {
       hasher.hash(req.body.password, (hashedPassword) => {
         db.addUser({name: req.body.name, password: hashedPassword}, (dbRes) => {
-          res.render('home')
+          res.render('log-in', {message: "* now log in"})
         })
       })
     } else {

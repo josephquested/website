@@ -1,7 +1,8 @@
 module.exports = {
   home: home,
   no: no,
-  logUp: logUp
+  logUp: logUp,
+  logIn: logIn
 }
 
 function home (req, res) {
@@ -14,4 +15,8 @@ function no (req, res) {
 
 function logUp (req, res) {
   res.render('log-up')
+}
+
+function logIn (req, res) {
+  res.render('log-in')
 }
