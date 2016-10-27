@@ -4,6 +4,7 @@
   "description": "(website)",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/josephquested/website/issues"
   },
-  "homepage": "https://github.com/josephquested/website#readme"
+  "homepage": "https://github.com/josephquested/website#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.11.0"
+  }
 }
