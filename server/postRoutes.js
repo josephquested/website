@@ -6,17 +6,15 @@ module.exports = {
 }
 
 function logUp (req, res) {
-  console.log('form data: ', req.body)
   db.getOneByName('users', req.body.name, (data) => {
     if (!data.length) {
       hasher.hash(req.body.password, (hashedPassword) => {
         db.addUser({name: req.body.name, password: hashedPassword}, (dbRes) => {
-          console.log('res from database: ', dbRes)
           res.render('home')
         })
       })
     } else {
-      console.log('user already exists')
+      res.render('log-up', {message: "* already user idiot"})
     }
   })
 }

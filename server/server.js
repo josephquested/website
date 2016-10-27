@@ -1,4 +1,5 @@
-var app = require('express')()
+var express = require('express')
+var app = express()
 var hbs = require('express-handlebars')
 var bodyParser = require('body-parser')
 
@@ -8,6 +9,7 @@ var postRoutes = require('./postRoutes')
 app.set('view engine', 'hbs')
 app.set('views', require('path').join(__dirname, '../views'))
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static('./public'))
 
 app.engine('hbs', hbs({
   extname: 'hbs',
