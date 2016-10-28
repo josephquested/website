@@ -25,7 +25,8 @@ function logIn (req, res) {
     if (data.length > 0) {
       hasher.checkHash(req.body.password, data[0].password, (valid) => {
         if (valid) {
-          res.render('log-in', {message: "yes!"})
+          req.session = require('./setSessionData')(req.session, data[0])
+          res.render('home', {message: `hello ${req.session.userName}`})
         } else {
           res.render('log-in', {message: "* wrong password idiot"})
         }
