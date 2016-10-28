@@ -14,6 +14,12 @@ module.exports = {
     .then(res => callback(res))
   },
 
+  getOneById: (table, id, callback) => {
+    knex(table)
+    .where('id', id)
+    .then(res => callback(res))
+  },
+
   addUser: (userData, callback) => {
     knex('users')
     .insert({name: userData.name, password: userData.password})

@@ -1,3 +1,4 @@
+var db = require('../database/db')
 var render = require('../views/render')
 
 module.exports = {
@@ -5,7 +6,8 @@ module.exports = {
   no: no,
   logUp: logUp,
   logIn: logIn,
-  logOut: logOut
+  logOut: logOut,
+  userPage: userPage
 }
 
 function home (req, res) {
@@ -30,5 +32,11 @@ function logOut (req, res) {
 }
 
 function userPage (req, res) {
-  res.send(render('user-page'))
+  db.getOneById('users', req.params.id, (data) => {
+    if (data.length > 0) {
+      res.send(render('user-page', data[0]))
+    } else {
+      res.send(render('no', req.session))
+    }
+  })
 }

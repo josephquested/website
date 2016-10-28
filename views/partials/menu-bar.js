@@ -12,7 +12,7 @@ module.exports = function (data) {
     `
   } else {
     html += `
-      <form style="display: inline" action="/user/${data.name}">
+      <form style="display: inline" action="/user/${data.userId}">
           <input type="submit" value="${data.name}" />
       </form>
       <form style="display: inline" action="/log/out">

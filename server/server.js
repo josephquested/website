@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('./public'))
 
 app.use(session({
-  secret: 'SECRETwebsite1000',
+  secret: 'website1000',
   saveUninitialized: true,
   resave: true
 }))
@@ -24,6 +24,7 @@ app.get('/log', getRoutes.no)
 app.get('/log/up', getRoutes.logUp)
 app.get('/log/in', getRoutes.logIn)
 app.get('/log/out', getRoutes.logOut)
+app.get('/user/:id', getRoutes.userPage)
 
 // POST REQUESTS //
 app.post('/log/up', postRoutes.logUp)
