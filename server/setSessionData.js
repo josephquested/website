@@ -1,5 +1,5 @@
 module.exports = function (session, data) {
-  session.userId = data.id
-  session.userName = data.name
+  session.id = data.id
+  session.name = data.name
   return session
 }

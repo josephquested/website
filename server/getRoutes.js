@@ -1,4 +1,4 @@
-var formatMenuBar = require('../views/logic/format-menu-bar')
+var render = require('../views/render')
 
 module.exports = {
   home: home,
@@ -8,17 +8,17 @@ module.exports = {
 }
 
 function home (req, res) {
-  res.render('home', {menuBar: formatMenuBar(req.session)})
+  res.send(render('home', req.session))
 }
 
 function no (req, res) {
-  res.render('no')
+  res.send(render('no', req.session))
 }
 
 function logUp (req, res) {
-  res.render('log-up', {menuBar: formatMenuBar(req.session)})
+  res.send(render('log-up', req.session))
 }
 
 function logIn (req, res) {
-  res.render('log-in', {menuBar: formatMenuBar(req.session)})
+  res.send(render('log-in', req.session))
 }

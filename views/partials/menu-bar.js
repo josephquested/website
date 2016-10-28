@@ -1,7 +1,7 @@
 module.exports = function (data) {
   var html = ``
 
-  if (!data.id) {
+  if (!data.name) {
     html += `
       <form style="display: inline" action="/log/in">
           <input type="submit" value="log in" />
