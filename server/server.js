@@ -5,8 +5,8 @@ var app = express()
 var bodyParser = require('body-parser')
 var session = require('express-session')
 
-var getRoutes = require('./getRoutes')
-var postRoutes = require('./postRoutes')
+var getRoutes = require('./get-routes')
+var postRoutes = require('./post-routes')
 
 app.set('views', require('path').join(__dirname, '../views'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,6 +23,7 @@ app.get('/', getRoutes.home)
 app.get('/log', getRoutes.no)
 app.get('/log/up', getRoutes.logUp)
 app.get('/log/in', getRoutes.logIn)
+app.get('/log/out', getRoutes.logOut)
 
 // POST REQUESTS //
 app.post('/log/up', postRoutes.logUp)

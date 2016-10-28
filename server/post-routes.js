@@ -12,7 +12,8 @@ function logUp (req, res) {
     if (!data.length) {
       hasher.hash(req.body.password, (hashedPassword) => {
         db.addUser({name: req.body.name, password: hashedPassword}, (dbRes) => {
-          res.send(render('log-in', {message: "* now log in"}))
+          req.session.message = "* now log in"
+          res.redirect('/log/in')
         })
       })
     } else {
@@ -26,8 +27,8 @@ function logIn (req, res) {
     if (data.length > 0) {
       hasher.checkHash(req.body.password, data[0].password, (valid) => {
         if (valid) {
-          req.session = require('./setSessionData')(req.session, data[0])
-          res.send(render('home', req.session))
+          req.session = require('./set-session-data')(req.session, data[0])
+          res.redirect('/')
         } else {
           res.send(render('log-in', {message: "* wrong password idiot"}))
         }
