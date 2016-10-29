@@ -15,6 +15,9 @@ module.exports = function (data) {
       <form style="display: inline" action="/user/${data.userId}">
           <input type="submit" value="${data.name}" />
       </form>
+      <form style="display: inline" action="/enemies">
+          <input type="submit" value="enemies" />
+      </form>
       <form style="display: inline" action="/log/out">
           <input type="submit" value="log out" />
       </form>

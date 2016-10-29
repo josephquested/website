@@ -7,7 +7,8 @@ module.exports = {
   logUp: logUp,
   logIn: logIn,
   logOut: logOut,
-  userPage: userPage
+  userPage: userPage,
+  enemies: enemies
 }
 
 function home (req, res) {
@@ -28,7 +29,12 @@ function logIn (req, res) {
 
 function logOut (req, res) {
   req.session = require('./wipe-session-data')(req.session)
-  res.send(render('home', req.session))
+  res.redirect('/')
+}
+
+function enemies (req, res) {
+  console.log(req.session)
+  res.send(render('enemies', req.session))
 }
 
 function userPage (req, res) {

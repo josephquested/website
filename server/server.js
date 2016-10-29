@@ -25,6 +25,7 @@ app.get('/log/up', getRoutes.logUp)
 app.get('/log/in', getRoutes.logIn)
 app.get('/log/out', getRoutes.logOut)
 app.get('/user/:id', getRoutes.userPage)
+app.get('/enemies', getRoutes.enemies)
 
 // POST REQUESTS //
 app.post('/log/up', postRoutes.logUp)
