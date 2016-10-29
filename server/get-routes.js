@@ -29,12 +29,15 @@ function logIn (req, res) {
 
 function logOut (req, res) {
   req.session = require('./wipe-session-data')(req.session)
-  res.redirect('/')
+  res.send(`<html><html><html><html><html> never come back <html><html><html><html><html><html>`)
 }
 
 function enemies (req, res) {
-  console.log(req.session)
-  res.send(render('enemies', req.session))
+  if (req.session.name) {
+    res.send(render('enemies', req.session))
+  } else {
+    res.send(render('no', req.session))
+  }
 }
 
 function userPage (req, res) {

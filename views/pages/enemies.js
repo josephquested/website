@@ -1,7 +1,7 @@
 module.exports = (data) => {
   var html = enemiesHTML(data.enemies)
   return `
-    <h2>your enemies:</h2>
+    <h2>your enemies</h2>
     <ul>
       ${html}
     </ul>

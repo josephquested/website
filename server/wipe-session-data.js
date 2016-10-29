@@ -1,5 +1,6 @@
-module.exports = function (session, data) {
-  session.name = ''
-  session.message = ''
+module.exports = function (session) {
+  session.name = undefined
+  session.message = undefined
+  session.description = undefined
   return session
 }
