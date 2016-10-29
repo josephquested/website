@@ -9,7 +9,7 @@ module.exports = (data) => {
     <h4>${data.description}</h4>
     <button id='edit'>  click to edit</button>
     <script>
-      document.getElementById('edit').addEventListener('click', ()=>{alert('you do not have permission to edit your description')})
+      document.getElementById('edit').addEventListener('click', ()=>{alert('you do not have permission to edit your description.')})
     </script>
   `
 }

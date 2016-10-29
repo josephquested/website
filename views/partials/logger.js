@@ -1,7 +1,7 @@
-module.exports = (test) => {
+module.exports = (text) => {
   return `
     <script>
-      console.log('${test}')
+      console.log('${text}')
     </script>
   `
 }

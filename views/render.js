@@ -1,6 +1,8 @@
 module.exports = (page, data) => {
   var menuBar = require('./partials/menu-bar')(data)
   var body = require(`./pages/${page}`)(data)
+  var logger = require('./partials/logger')
+
   var logText = "website1000"
 
   if (data.userId) {
@@ -16,9 +18,7 @@ module.exports = (page, data) => {
         <h1>website1000</h1>
         ${menuBar}
         ${body}
-        <script>
-          console.log('${logText}')
-        </script>
+        ${logger(logText)}
       </body>
     </html>
   `
