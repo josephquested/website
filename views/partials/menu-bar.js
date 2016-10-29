@@ -9,6 +9,7 @@ module.exports = function (data) {
       <form style="display: inline" action="/log/up">
           <input type="submit" value="log up" />
       </form>
+      <hr><br>
     `
   } else {
     html += `
@@ -21,6 +22,7 @@ module.exports = function (data) {
       <form style="display: inline" action="/log/out">
           <input type="submit" value="log out" />
       </form>
+      <hr><br>
     `
   }
   return html
